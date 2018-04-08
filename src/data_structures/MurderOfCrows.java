@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class MurderOfCrows {
+	int deathNumber=-1;
 
     ArrayList<Crow> theMurder = new ArrayList<Crow>();
 
@@ -28,18 +29,35 @@ public class MurderOfCrows {
          * 1. One of the Crows has eaten the diamond. You need to search through the stomach of each Crow, 
          * then print the name of the guilty Crow.
          */
+    		for (Crow crow : theMurder) {
+    				deathNumber++;
+    				
+    				ArrayList contents = crow.getStomachContents();
+    				String name = crow.getName();
+    			
+    				for (Object object : contents) {
+						if(object.equals("diamond")) {
+							System.out.println(name + " TIME FOR EXECUTION");
+							System.out.println("so " + deathNumber + " of you died bc u were in cahoots with the eater of the diamond");
+							break;
+						}else {
+						}
+					}
+    			
+			}
         
         /* 2. How many innocent crows had to die before the diamond was found? */
         
     }
 
     private void initializeCrows() {
-        theMurder.add(new Crow("Rok"));
-        theMurder.add(new Crow("Merle"));
-        theMurder.add(new Crow("Poe"));
-        theMurder.add(new Crow("Grenwyn"));
-        theMurder.add(new Crow("Crawford"));
+        theMurder.add(new Crow("Dalia"));
+        theMurder.add(new Crow("Joseph"));
+        theMurder.add(new Crow("Matt bc he didn't like my game"));
+        theMurder.add(new Crow("delaras typing record"));
+        theMurder.add(new Crow("tampa haha bc newark beat u"));
         hideTheDiamond();
+        
     }
 
     private void hideTheDiamond() {
@@ -58,8 +76,9 @@ class Crow {
     }
 
     private void fillCrowsStomach() {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 10; i++) {
             this.stomachContents.add(getRandomCrowFood());
+        }
     }
 
     private String getRandomCrowFood() {
