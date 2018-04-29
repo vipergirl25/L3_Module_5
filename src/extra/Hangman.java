@@ -102,14 +102,18 @@ public class Hangman implements KeyListener {
 		}
 	}
 	void drawBoxes() {
-		destroyBoxes();
 		newWord();
-		panel.removeAll();
+		destroyBoxes();
 		for (int i = 0; i < word.length(); i++) {
 			underscore+="_";
 		}
+		System.out.println(underscore);	
+		addToScreen();
+		System.out.println("it should be added");
+		}
+	void addToScreen() {
 		underscores.setText(underscore);
-	}
+		}
 	void destroyBoxes() {
 		underscore="";
 	}
